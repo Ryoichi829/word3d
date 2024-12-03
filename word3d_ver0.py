@@ -25,9 +25,9 @@ with col2:
     vectors = []
     for i in range(4):
         vectors.append(go.Scatter3d(
-            x=[0, edited_df.iloc[i, 0],
-            y=[0, edited_df.iloc[i, 1],
-            z=[0, edited_df.iloc[i, 2],
+            x=[0, edited_df.iloc[i, 0]],
+            y=[0, edited_df.iloc[i, 1]],
+            z=[0, edited_df.iloc[i, 2]],
             mode='lines',
             line=dict(width=10),
             name=list(df.columns)[i]  # 各ベクトルに名前を付ける
