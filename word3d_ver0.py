@@ -30,7 +30,7 @@ with col2:
             z=[0, edited_df.iloc[i, 2]],
             mode='lines',
             line=dict(width=10),
-            name=list(df.keys)[i]  # 各ベクトルに名前を付ける
+            name=list(df.index)[i]  # 各ベクトルに名前を付ける
         ))
 
     # 3次元ベクトル（矢印含む）プロットを作成
