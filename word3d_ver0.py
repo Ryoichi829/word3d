@@ -19,23 +19,6 @@ with col1:
 
     edited_df = st.data_editor(df)
 
-    # 内積を表すデータを準備
-    matrix = np.zeros((4,4))
-    for i in range(4):
-        for j in range(4):
-            matrix[i, j] = edited_df.iloc[0, i] * edited_df.iloc[0, j] \
-                         + edited_df.iloc[1, i] * edited_df.iloc[1, j] \
-                         + edited_df.iloc[2, i] * edited_df.iloc[2, j]
-
-    # LaTeX数式
-    dot_product = r'内積（$$\vec{a} \cdot \vec{b} = a_1b_1 + a_2b_2 + a_3b_3$$）'
-    st.markdown(dot_product)
-
-    df_inner_product = pd.DataFrame(matrix, 
-                      columns=['チャーハン', 'カレー', '自転車', '車'],
-                      index=['チャーハン', 'カレー', '自転車', '車'])
-    st.dataframe(df_inner_product)
-
 with col2:
 
     # ベクトルを表すデータを準備
