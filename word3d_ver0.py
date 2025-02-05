@@ -11,11 +11,11 @@ col1, col2 = st.columns(2)
 with col1:
 
     df = pd.DataFrame({
-        'x':[9, 8, 1, 1],
-        'y':[2, 3, 9, 8],
-        'z':[5, 5, 8, 9]
+        'x':[9, 6, 1, 2],
+        'y':[8, 9, 9, 8],
+        'z':[7, 8, 8, 9]
     })
-    df.index = ['チャーハン', 'カレー', '自転車', '車']
+    df.index = ['インスタ', 'X', '自転車', '車']
 
     edited_df = st.data_editor(df)
 
