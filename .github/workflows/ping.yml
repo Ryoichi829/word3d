@@ -1,0 +1,12 @@
+name: Keep Streamlit App (3-d vecor visualization) Alive
+
+on:
+  schedule:
+    - cron: "5 * * * *"  # 00分ごとに実行（UTC時間）
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl your Streamlit App (3-d vecor visualization)
+        run: curl -s https://word3d-b55mwlmtulmgspme2njkxc.streamlit.app/ 
