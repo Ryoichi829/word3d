@@ -1,0 +1,28 @@
+name: Keep Streamlit App Alive (Python Playwright)
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # 毎時0分に実行（UTC時間）
+  workflow_dispatch:      # 手動実行もできるようにする
+
+jobs:
+  keep_alive:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # 使いたいPythonバージョン
+
+      - name: Install Playwright
+        run: |
+          pip install playwright
+          playwright install
+
+      - name: Run keep_alive.py
+        run: |
+          python keep_alive.py
