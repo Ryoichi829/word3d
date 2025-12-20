@@ -25,9 +25,9 @@ with col2:
     vectors = []
     cones = []
     for i in range(4):
-         x=edited_df.iloc[i, 0]
-         y=edited_df.iloc[i, 1]
-         z=edited_df.iloc[i, 2]
+        x=edited_df.iloc[i, 0]
+        y=edited_df.iloc[i, 1]
+        z=edited_df.iloc[i, 2]
         # ベクトル本体（原点ー＞先端）
         vectors.append(go.Scatter3d(
             x=[0, x],
