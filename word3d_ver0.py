@@ -25,11 +25,14 @@ with col2:
     vectors = []
     cones = []
     for i in range(4):
+         x=edited_df.iloc[i, 0]
+         y=edited_df.iloc[i, 1]
+         z=edited_df.iloc[i, 2]
         # ベクトル本体（原点ー＞先端）
         vectors.append(go.Scatter3d(
-            x=[0, edited_df.iloc[i, 0]],
-            y=[0, edited_df.iloc[i, 1]],
-            z=[0, edited_df.iloc[i, 2]],
+            x=[0, x],
+            y=[0, y],
+            z=[0, z],
             mode='lines',
             line=dict(width=6),
             name=list(df.index)[i]  # 各ベクトルに名前を付ける
