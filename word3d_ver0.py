@@ -23,18 +23,32 @@ with col2:
 
     # ベクトルを表すデータを準備
     vectors = []
+    cones = []
     for i in range(4):
+        # ベクトル本体（原点ー＞先端）
         vectors.append(go.Scatter3d(
             x=[0, edited_df.iloc[i, 0]],
             y=[0, edited_df.iloc[i, 1]],
             z=[0, edited_df.iloc[i, 2]],
             mode='lines',
-            line=dict(width=10),
+            line=dict(width=6),
             name=list(df.index)[i]  # 各ベクトルに名前を付ける
         ))
-
+        # 矢印の先端（コーン）
+        cones.append(go.Cone(
+            x=[x],
+            y=[y],
+            z=[z],
+            u=[x],
+            v=[y],
+            w=[z],
+            sizemode='absolute',
+            sizeref=2,
+            showscale=False
+        ))
+    
     # 3次元ベクトル（矢印含む）プロットを作成
-    fig = go.Figure(data=vectors)
+    fig = go.Figure(data=vectors+cones)
 
     # レイアウトを設定
     fig.update_layout(
