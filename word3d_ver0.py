@@ -21,6 +21,8 @@ with col1:
 
 with col2:
 
+    # 色をベクトルごとに固定で定義
+    colors = ["red", "blue", "green", "orange"]
     # ベクトルを表すデータを準備
     vectors = []
     cones = []
@@ -28,13 +30,14 @@ with col2:
         x=edited_df.iloc[i, 0]
         y=edited_df.iloc[i, 1]
         z=edited_df.iloc[i, 2]
+        color=colors[i]
         # ベクトル本体（原点ー＞先端）
         vectors.append(go.Scatter3d(
             x=[0, x],
             y=[0, y],
             z=[0, z],
             mode='lines',
-            line=dict(width=6),
+            line=dict(width=6, color=color),
             name=list(df.index)[i]  # 各ベクトルに名前を付ける
         ))
         # 矢印の先端（コーン）
@@ -46,7 +49,8 @@ with col2:
             v=[y],
             w=[z],
             sizemode='absolute',
-            sizeref=2,
+            sizeref=1.2,
+            colorscale=[[0, color], [1, color]],
             showscale=False
         ))
     
